@@ -23,7 +23,7 @@ Vue.use({install: (Vue, options) => {
   }
 }})
 Vue.material.registerTheme('default', {
-  primary: {color: 'orange', hue: 800},
+  primary: {color: 'light-green', hue: 700},
   accent: 'white',
   warn: 'red',
   background: 'white'
