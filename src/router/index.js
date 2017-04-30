@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import Monitor from '@/components/Monitor'
 import NewBrew from '@/components/Brew'
-import {token} from '@/api'
+import Kegs from '@/components/Kegs'
+import User from '@/api/user'
 
 Vue.use(Router)
 
@@ -13,6 +14,12 @@ const router = new Router({
       path: '/',
       name: 'hello',
       component: Hello
+    },
+    {
+      path: '/kegs',
+      name: 'kegs',
+      meta: {description: 'Kegs'},
+      component: Kegs
     },
     {
       path: '/brew',
@@ -30,8 +37,15 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (!token() && to.path !== '/') {
-    return next('/')
+  if (to.path !== '/') {
+    User.getStatus()
+      .then(data => {
+        console.log('test')
+        return next()
+      }).catch(e => {
+        console.log('error')
+        return next('/')
+      })
   } else {
     return next()
   }

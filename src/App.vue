@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loading v-if="false"></loading> 
     <div v-if='$route.fullPath !== "/"'>
      <md-toolbar class="md-theme-default md-dense md-whiteframe-1dp main-header md-whitefame">
       <md-button class="md-icon-button" md-font-set="material-icons" @click.native="toggleSidenav">
@@ -17,9 +18,11 @@
 
 <script>
 import SideNav from '@/components/SideNav'
+import Loading from '@/components/Loading'
 export default {
   name: 'app',
   components: {
+    Loading,
     SideNav
   },
   methods: {

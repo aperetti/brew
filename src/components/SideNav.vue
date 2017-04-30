@@ -11,6 +11,11 @@
             <md-icon>multiline_chart</md-icon><span>Monitor </span>
           </router-link>
         </md-list-item>
+        <md-list-item>
+          <router-link to='kegs'>
+            <md-icon>local_bar</md-icon><span>Kegs </span>
+          </router-link>
+        </md-list-item>
         <md-list-item @click.native='logout'>
             <md-icon>exit_to_app</md-icon><span>Logout</span>
         </md-list-item>
