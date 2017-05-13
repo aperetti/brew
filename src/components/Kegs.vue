@@ -293,7 +293,7 @@ export default {
       var size = Number(this.pullSize)
       this.pullMessage = `Please enjoy your ${size}oz drink!`
       clearTimeout(kegTimeOut)
-      setTimeout(() => {
+      kegTimeOut = setTimeout(() => {
         this.$refs['consumeBar'].open()
         this.pullingKeg = null
         this.pullSize = 0
